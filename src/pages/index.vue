@@ -6,9 +6,7 @@ import {
   type ChainConfig,
 } from '@/stores/useDashboard';
 import ChainSummary from '@/components/ChainSummary.vue';
-import AdBanner from '@/components/ad/AdBanner.vue';
-
-import { computed, onMounted, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useBlockchain } from '@/stores';
 
 const dashboard = useDashboard();
@@ -35,7 +33,6 @@ const featured = computed(() => {
 })
 
 const chainStore = useBlockchain()
-
 </script>
 <template>
   <div class="">
@@ -45,7 +42,7 @@ const chainStore = useBlockchain()
           viewBox="0 0 150.000000 132.000000"
           preserveAspectRatio="xMidYMid meet">
           <g transform="translate(0.000000,132.000000) scale(0.100000,-0.100000)"
-          :fill="chainStore.current?.themeColor||'#666CFF'" class=" dark:invert" stroke="none">
+          :fill="chainStore.current?.themeColor||'#666CFF'" class=" retro:invert" stroke="none">
             <path d="M500 1310 l-125 -5 -182 -315 c-100 -173 -182 -321 -182 -329 -1 -7
             81 -159 181 -337 l183 -324 372 0 371 0 186 325 c102 179 186 330 186 337 0 7
             -82 157 -182 335 l-183 323 -250 -2 c-137 -1 -306 -5 -375 -8z m588 -454 c61
@@ -61,7 +58,7 @@ const chainStore = useBlockchain()
           </g>
         </svg>
       </div>
-      <h1 class="text-primary dark:invert text-3xl md:!text-6xl font-bold">
+      <h1 class="text-primary retro:invert text-3xl md:!text-6xl font-bold">
         {{ $t('pages.title') }}
       </h1>
     </div>
@@ -91,13 +88,11 @@ const chainStore = useBlockchain()
       />
     </div>
 
-    <AdBanner id="home-banner-ad" unit="banner" width="970px" height="90px" />
-
     <div class="text-center text-base mt-6 text-primary">
       <h2 class="mb-6">{{ $t('pages.description') }}</h2>
     </div>
 
-    <div class="flex items-center rounded-lg bg-base-100  border border-gray-200 dark:border-gray-700 mt-10">
+    <div class="flex items-center rounded-lg bg-base-100  border border-gray-200 retro:border-gray-700 mt-10">
       <Icon icon="mdi:magnify" class="text-2xl text-gray-400 ml-3"/>
       <input :placeholder="$t('pages.search_placeholder')" class="px-4 h-10 bg-transparent flex-1 outline-none text-base" v-model="keywords" />
       <div class="px-4 text-base hidden md:!block">{{ chains.length }}/{{ dashboard.length }}</div>
@@ -119,4 +114,4 @@ const chainStore = useBlockchain()
  .logo path{
   fill: #171d30;
 }
-</style>@/components/ad/ad
+</style>
