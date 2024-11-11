@@ -132,7 +132,7 @@ export const useStakingStore = defineStore('stakingStore', {
         await this.fetchKeyRotation(chain_id, pubKeyToValcons(val.consensus_pubkey, prefix.replace('valoper','')))
       }
     },
-    async fetchValidators(status: string, limit = 300) {
+    async fetchValidators(status: string, limit = 500) {
       if(this.blockchain.isConsumerChain) {
         if(this.blockchain.current?.providerChain.api && this.blockchain.current.providerChain.api.length > 0) {
           const client = CosmosRestClient.newDefault(this.blockchain.current.providerChain.api[0].address)

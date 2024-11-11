@@ -1,0 +1,21 @@
+{
+    "chain_name": "lava-mainnet-1",
+    "registry_name": "lava",
+    "api": [
+        {"provider": "5ElementsNodes", "address": "https://api-lava.5elementsnodes.com"}
+    ],
+    "rpc": [
+        {"provider": "5ElementsNodes", "address": "https://rpc-lava.5elementsnodes.com"} 
+    ],
+    "sdk_version": "0.47.10",
+    "coin_type": "118",
+    "min_tx_fee": "20",
+    "addr_prefix": "lava@",
+    "logo": "/logos/lava.png",
+    "assets": [{
+        "base": "ulava",
+        "symbol": "LAVA",
+        "exponent": "6",
+        "logo": "/logos/lava.png"
+    }]
+}

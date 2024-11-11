@@ -1,0 +1,21 @@
+{
+    "chain_name": "athens_186-1",
+    "registry_name": "pell testnet",
+    "api": [
+        {"provider": "5ElementsNodes", "address": "https://api-pell.5elementsnodes.com"}
+    ],
+    "rpc": [
+        {"provider": "5ElementsNodes", "address": "https://rpc-pell.5elementsnodes.com"} 
+    ],
+    "sdk_version": "0.47.3",
+    "coin_type": "118",
+    "min_tx_fee": "8000000",
+    "addr_prefix": "pell",
+    "logo": "/logos/pell.png",
+    "assets": [{
+        "base": "apell",
+        "symbol": "PELL",
+        "exponent": "18",
+        "logo": "/logos/pell.png"
+    }]
+}

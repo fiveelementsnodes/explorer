@@ -1,0 +1,21 @@
+{
+    "chain_name": "celestia",
+    "registry_name": "celestia",
+    "api": [
+        {"provider": "5ElementsNodes", "address": "https://api-celestia.5elementsnodes.com"}
+    ],
+    "rpc": [
+        {"provider": "5ElementsNodes", "address": "https://rpc-celestia.5elementsnodes.com"} 
+    ],
+    "sdk_version": "0.46.17",
+    "coin_type": "118",
+    "min_tx_fee": "0000000002",
+    "addr_prefix": "celestia",
+    "logo": "/logos/tia.png",
+    "assets": [{
+        "base": "utia",
+        "symbol": "TIA",
+        "exponent": "6",
+        "logo": "/logos/tia.png"
+    }]
+}

@@ -1,0 +1,21 @@
+{
+    "chain_name": "nesa-testnet-3",
+    "registry_name": "Nesa Testnet",
+    "api": [
+        {"provider": "NESA", "address": "https://lcd.test.nesa.ai"}
+    ],
+    "rpc": [
+        {"provider": "NESA", "address": "https://rpc.test.nesa.ai"}
+    ],
+    "sdk_version": "0.47.3",
+    "coin_type": "118",
+    "min_tx_fee": "800",
+    "addr_prefix": "nesa",
+    "logo": "/logos/nesa.jpg",
+    "assets": [{
+        "base": "unes",
+        "symbol": "NES",
+        "exponent": "6",
+        "logo": "/logos/nesa.jpg"
+    }]
+}
