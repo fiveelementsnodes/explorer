@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import AdBanner from '@/components/ad/AdBanner.vue';
 import { get } from '@/libs';
 import { useBlockchain, useFormatter, useGovStore } from '@/stores';
 import { ref, onMounted, computed } from 'vue';
@@ -117,7 +116,6 @@ onMounted(() => {
                 Tokens</button>
         </div>
 
-        <AdBanner id="home-banner-ad" unit="banner" />
 
         <div class="bg-base-100 my-5 px-4 pt-3 pb-4 rounded shadow">
             <h2 class="card-title">Enable Faucet</h2>
@@ -160,7 +158,6 @@ onMounted(() => {
                 </div>
                 <p class="py-2">
                 <div>
-                    <AdBanner id="popup-ad" unit="popup" />
                 </div>
                 </p>
             </div>

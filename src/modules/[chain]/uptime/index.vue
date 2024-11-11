@@ -55,7 +55,8 @@ const list = computed(() => {
 
     const window = Number(slashingParam.value.signed_blocks_window || 0);
     const vset = validatorSet.value.map((v) => {
-      const hexAddress = stakingStore.findRotatedHexAddress(v.base64);
+//    const hexAddress = stakingStore.findRotatedHexAddress(v.base64);
+      const hexAddress = stakingStore.findRotatedHexAddress({ '@type': 'cosmos.crypto.ed25519.PubKey', key: v.base64 });
       const signing = signingInfo.value[hexAddress];
       return {
         v,
@@ -71,11 +72,13 @@ const list = computed(() => {
   } else {
     const window = Number(slashingParam.value.signed_blocks_window || 0);
     const vset = validatorSet.value.map((v) => {
-      const signing = signingInfo.value[consensusPubkeyToHexAddress(v.base64)];
+//    const signing = signingInfo.value[consensusPubkeyToHexAddress(v.base64)];
+      const signing = signingInfo.value[consensusPubkeyToHexAddress({ '@type': 'cosmos.crypto.ed25519.PubKey', key: v.base64 })];
       return {
         v,
         signing,
-        hex: toBase64(fromHex(consensusPubkeyToHexAddress(v.base64))),
+//      hex: toBase64(fromHex(consensusPubkeyToHexAddress(v.base64))),
+        hex: toBase64(fromHex(consensusPubkeyToHexAddress({ '@type': 'cosmos.crypto.ed25519.PubKey', key: v.base64 }))),
         uptime:
           signing && window > 0
             ? (window - Number(signing.missed_blocks_counter)) / window
@@ -94,7 +97,7 @@ baseStore.$subscribe((_, state) => {
 
     // initialize if it's the first time
     if (!preload.value) {
-      preFill();
+//      preFill();
       preload.value = true;
     }
 
@@ -122,7 +125,7 @@ baseStore.$subscribe((_, state) => {
     }
 
     if (Number(state.latest.block.header.height) % 7 === 0) updateTotalSigningInfo();
-    fillblock(state.latest);
+//    fillblock(state.latest);
   }
 });
 
@@ -131,7 +134,7 @@ onMounted(() => {
 
   // fill the recent blocks
   baseStore.recents?.forEach((b) => {
-    fillblock(b, 'start');
+//    fillblock(b, 'start');
   });
 
   updateTotalSigningInfo();
@@ -198,7 +201,7 @@ function changeTab(v: string) {
           placeholder="Keywords to filter validators"
           class="input input-sm w-full flex-1 border border-gray-200 dark:border-gray-600"
         />
-        <button v-if="chainStore.isConsumerChain" class="btn btn-sm btn-primary" @click="fetchAllKeyRotation">Load Rotated Keys</button>
+      <!-- <button v-if="chainStore.isConsumerChain" class="btn btn-sm btn-primary" @click="fetchAllKeyRotation">Load Rotated Keys</button> -->
       </div>
 
       <div v-if="chainStore.isConsumerChain && Object.keys(stakingStore.keyRotation).length === 0"

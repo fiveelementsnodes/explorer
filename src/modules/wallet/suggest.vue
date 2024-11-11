@@ -136,7 +136,7 @@ function suggest() {
             })
         }
     } else {
-        suggestChain(JSON.parse(conf.value));
+        suggestChain(JSON.parse(conf.value), {});
     }
 }
 
