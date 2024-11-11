@@ -1,13 +1,9 @@
-import type{ RequestRegistry } from '@/libs/registry'
-import type { GovProposal, PaginatedProposals } from '@/types'
-import { adapter } from '@/libs/registry'
-// which registry is store
-export const store = 'name' // name or version
-// Blockchain Name
-export const name = 'initiation-1'
+import {
+  type RequestRegistry,
+  adapter,
+} from './registry';
 
-
-export const requests: Partial<RequestRegistry> = {
+export const DEFAULT: RequestRegistry = {
   auth_params: { url: '/cosmos/auth/v1beta1/params', adapter },
   auth_accounts: { url: '/cosmos/auth/v1beta1/accounts', adapter },
   auth_account_address: {
@@ -52,66 +48,66 @@ export const requests: Partial<RequestRegistry> = {
     url: '/cosmos/slashing/v1beta1/signing_infos',
     adapter,
   },
-  gov_params_voting: { url: '/cosmos/gov/v1/params/voting', adapter },
-  gov_params_tally: { url: '/cosmos/gov/v1/params/tallying', adapter },
-  gov_params_deposit: { url: '/cosmos/gov/v1/params/deposit', adapter },
-  gov_proposals: { url: '/cosmos/gov/v1/proposals', adapter },
+  gov_params_voting: { url: '/cosmos/gov/v1beta1/params/voting', adapter },
+  gov_params_tally: { url: '/cosmos/gov/v1beta1/params/tallying', adapter },
+  gov_params_deposit: { url: '/cosmos/gov/v1beta1/params/deposit', adapter },
+  gov_proposals: { url: '/cosmos/gov/v1beta1/proposals', adapter },
   gov_proposals_proposal_id: {
-    url: '/cosmos/gov/v1/proposals/{proposal_id}',
+    url: '/cosmos/gov/v1beta1/proposals/{proposal_id}',
     adapter,
   },
   gov_proposals_deposits: {
-    url: '/cosmos/gov/v1/proposals/{proposal_id}/deposits',
+    url: '/cosmos/gov/v1beta1/proposals/{proposal_id}/deposits',
     adapter,
   },
   gov_proposals_tally: {
-    url: '/cosmos/gov/v1/proposals/{proposal_id}/tally',
+    url: '/cosmos/gov/v1beta1/proposals/{proposal_id}/tally',
     adapter,
   },
   gov_proposals_votes: {
-    url: '/cosmos/gov/v1/proposals/{proposal_id}/votes',
+    url: '/cosmos/gov/v1beta1/proposals/{proposal_id}/votes',
     adapter,
   },
   gov_proposals_votes_voter: {
-    url: '/cosmos/gov/v1/proposals/{proposal_id}/votes/{voter}',
+    url: '/cosmos/gov/v1beta1/proposals/{proposal_id}/votes/{voter}',
     adapter,
   },
   staking_deletations: {
-    url: '/initia/mstaking/v1/delegations/{delegator_addr}',
+    url: '/cosmos/staking/v1beta1/delegations/{delegator_addr}',
     adapter,
   },
   staking_delegator_redelegations: {
-    url: '/initia/mstaking/v1/delegators/{delegator_addr}/redelegations',
+    url: '/cosmos/staking/v1beta1/delegators/{delegator_addr}/redelegations',
     adapter,
   },
   staking_delegator_unbonding_delegations: {
-    url: '/initia/mstaking/v1/delegators/{delegator_addr}/unbonding_delegations',
+    url: '/cosmos/staking/v1beta1/delegators/{delegator_addr}/unbonding_delegations',
     adapter,
   },
   staking_delegator_validators: {
-    url: '/initia/mstaking/v1/delegators/{delegator_addr}/validators',
+    url: '/cosmos/staking/v1beta1/delegators/{delegator_addr}/validators',
     adapter,
   },
-  staking_params: { url: '/initia/mstaking/v1/params', adapter },
-  staking_pool: { url: '/initia/mstaking/v1/pool', adapter },
+  staking_params: { url: '/cosmos/staking/v1beta1/params', adapter },
+  staking_pool: { url: '/cosmos/staking/v1beta1/pool', adapter },
   staking_validators: {
-    url: '/initia/mstaking/v1/validators?pagination.limit=20000&status={status}',
+    url: '/cosmos/staking/v1beta1/validators?pagination.limit={limit}&status={status}',
     adapter,
   },
   staking_validators_address: {
-    url: '/initia/mstaking/v1/validators/{validator_addr}',
+    url: '/cosmos/staking/v1beta1/validators/{validator_addr}',
     adapter,
   },
   staking_validators_delegations: {
-    url: '/initia/mstaking/v1/validators/{validator_addr}/delegations',
+    url: '/cosmos/staking/v1beta1/validators/{validator_addr}/delegations',
     adapter,
   },
   staking_validators_delegations_delegator: {
-    url: '/initia/mstaking/v1/validators/{validator_addr}/delegations/{delegator_addr}',
+    url: '/cosmos/staking/v1beta1/validators/{validator_addr}/delegations/{delegator_addr}',
     adapter,
   },
   staking_validators_delegations_unbonding_delegations: {
-    url: '/initia/mstaking/v1/validators/{validator_addr}/delegations/{delegator_addr}/unbonding_delegation',
+    url: '/cosmos/staking/v1beta1/validators/{validator_addr}/delegations/{delegator_addr}/unbonding_delegation',
     adapter,
   },
   base_tendermint_abci_query: {
@@ -197,6 +193,14 @@ export const requests: Partial<RequestRegistry> = {
   },
   interchain_security_ccv_provider_validator_consumer_addr: {
     url: '/interchain_security/ccv/provider/validator_consumer_addr?provider_address={provider_address}&chain_id={chain_id}',
+    adapter,
+  },
+  interchain_security_provider_opted_in_validators: {
+    url: '/interchain_security/ccv/provider/opted_in_validators/{chain_id}',
+    adapter,
+  },
+  interchain_security_consumer_validators: {
+    url: '/interchain_security/ccv/provider/consumer_validators/{chain_id}',
     adapter,
   },
 };
